@@ -23,7 +23,7 @@ def IVAE_wrapper(X, U, S=None, batch_size=256, max_iter=7e4, seed=None, n_layers
 
     # load data
     print('Creating shuffled dataset..')
-    dset = CustomSyntheticDataset(X, U, S, device)
+    dset = CustomSyntheticDataset(X, U, S, 'cpu')
     loader_params = {'num_workers': 1, 'pin_memory': True} if cuda else {}
     train_loader = DataLoader(dset, shuffle=True, batch_size=batch_size, **loader_params)
     data_dim, latent_dim, aux_dim = dset.get_dims()
