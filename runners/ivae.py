@@ -113,6 +113,7 @@ def runner(args, config):
             if not config.no_scheduler:
                 scheduler.step(train_loss)
         print('\ntotal runtime: {}'.format(time.time() - st))
+        torch.save(model.state_dict(), f"run/checkpoints/{config.ica}_{args.data_path}")
 
         # evaluate perf on full dataset
         Xt, Ut, St = dset.x.to(config.device), dset.u.to(config.device), dset.s
