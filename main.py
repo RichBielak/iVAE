@@ -14,6 +14,7 @@ def parse():
     parser = argparse.ArgumentParser(description='')
 
     parser.add_argument('--config', type=str, default='ivae.yaml', help='Path to the config file')
+    parser.add_argument('--data-path', type=str, default='', help='Path to the data file')
     parser.add_argument('--run', type=str, default='run', help='Path for saving running related data.')
     parser.add_argument('--doc', type=str, default='', help='A string for documentation purpose')
 
