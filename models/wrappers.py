@@ -125,7 +125,7 @@ def VAE_wrapper(X, S=None, batch_size=256, max_iter=7e4, seed=None, n_layers=3, 
                             n_layers=n_layers, hidden_dim=hidden_dim, device=device, slope=slope)
 
     optimizer = optim.Adam(model.parameters(), lr=lr)
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, factor=0.1, patience=scheduler_tol, verbose=True)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, factor=0.1, patience=scheduler_tol)
 
     logger = Logger(log_dir=log_folder)
     exp_id = logger.exp_id
